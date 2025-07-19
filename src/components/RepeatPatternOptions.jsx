@@ -23,8 +23,8 @@ export default function RepeatPatternOptions() {
   const selected = useSelector((state) => state.states.repeatpattern);
 
   return (
-    <div>
-      <p className="text-sm font-medium text-gray-700 mb-3 flex items-center gap-2">
+    <div className="border border-gray-200 p-4 rounded-2xl">
+      <p className="text-sm font-medium text-gray-700 mb-3 flex items-center gap-2 ">
         <Calendar className="w-4 h-4 text-blue-600" />
         Repeat Pattern
       </p>
@@ -36,7 +36,7 @@ export default function RepeatPatternOptions() {
             <button
               key={opt.value}
               onClick={() => dispatch(setpattern(opt.value))}
-              className={`flex flex-col items-center justify-center px-4 py-6 rounded-xl border transition-all
+              className={`flex hover:cursor-pointer flex-col items-center justify-center px-4 py-6 rounded-xl border transition-all
                 ${isSelected ? gradientMap[opt.value] : "bg-white text-black border-gray-200 hover:bg-gray-100"}`}
             >
               <div className="mb-2">{opt.icon}</div>
