@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState={
     openmainmodal:false,
     repeatpattern:"",
+    frequency:1,
 }
 
 const stateSlice=createSlice({
@@ -14,9 +15,12 @@ const stateSlice=createSlice({
         },
         setpattern:(state,action)=>{
             state.repeatpattern=action.payload;
+        },
+        setfrequency:(state,action)=>{
+            state.frequency=action.payload;
         }
     }
 })
 
-export const {setmainModal,setpattern}=stateSlice.actions;
+export const {setmainModal,setpattern,setfrequency}=stateSlice.actions;
 export default stateSlice.reducer;
