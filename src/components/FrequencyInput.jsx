@@ -6,12 +6,26 @@ import { Hash } from "lucide-react";
 
 export default function FrequencyInput() {
   const dispatch = useDispatch();
-  const {frequency} = useSelector((state) => state.states);
+  const {frequency,repeatpattern} = useSelector((state) => state.states);
 
   const handleChange = (e) => {
     const value = parseInt(e.target.value);
     if (!isNaN(value) && value >= 1) {
       dispatch(setfrequency(value));
+    }
+  };
+  const getLabel = (pattern) => {
+    switch (pattern?.toLowerCase()) {
+      case "daily":
+        return "day(s)";
+      case "weekly":
+        return "week(s)";
+      case "monthly":
+        return "month(s)";
+      case "yearly":
+        return "year(s)";
+      default:
+        return "day(s)";
     }
   };
 
@@ -34,7 +48,7 @@ export default function FrequencyInput() {
         />
 
         <span className="bg-gray-100 text-gray-700 px-3 py-2 text-sm rounded-lg">
-          day(s)
+        {getLabel(repeatpattern)}
         </span>
       </div>
     </div>
