@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState={
-    openmainmodal:true,
+    openmainmodal:false,
 }
 
 const stateSlice=createSlice({
