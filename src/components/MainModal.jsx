@@ -22,7 +22,7 @@ export default function MainModal() {
       <div className="relative bg-white rounded-xl shadow-lg p-8 w-[600px] text-left max-h-[90vh] overflow-y-scroll">
         <button
           onClick={() => dispatch(setmainModal(false))}
-          className="absolute top-4 right-4 text-gray-500 hover:text-gray-800 transition"
+          className="absolute hover:cursor-pointer top-4 right-4 text-gray-500 hover:text-gray-800 transition"
         >
           <X className="w-6 h-6 text-red-800" />
         </button>
