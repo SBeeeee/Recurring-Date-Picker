@@ -4,6 +4,7 @@ const initialState={
     openmainmodal:false,
     repeatpattern:"",
     frequency:1,
+    endDateEnabled: false,    
 }
 
 const stateSlice=createSlice({
@@ -18,9 +19,12 @@ const stateSlice=createSlice({
         },
         setfrequency:(state,action)=>{
             state.frequency=action.payload;
-        }
+        },
+        setEndDateEnabled: (state, action) => {
+            state.endDateEnabled = action.payload;
+         },
     }
 })
 
-export const {setmainModal,setpattern,setfrequency}=stateSlice.actions;
+export const {setmainModal,setpattern,setfrequency,setEndDateEnabled}=stateSlice.actions;
 export default stateSlice.reducer;

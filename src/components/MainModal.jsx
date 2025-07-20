@@ -7,6 +7,7 @@ import RepeatPatternOptions from "./RepeatPatternOptions";
 import FrequencyInput from "./FrequencyInput";
 import DaySelector from "./DaySelector";
 import MonthlyPatternSelector from "./MonthlyPatternSelector";
+import DateRangePicker from "./DateRangePicker";
 
 
 export default function MainModal() {
@@ -30,6 +31,7 @@ export default function MainModal() {
    <FrequencyInput/>
    <DaySelector/>
    <MonthlyPatternSelector/>
+   <DateRangePicker/>
       </div>
     </div>
   );
