@@ -6,14 +6,13 @@ const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
 export default function DaySelector() {
   const dispatch = useDispatch();
-  const selecteddays = useSelector((state) => state.stats.selecteddays);
-  const repeatpattern = useSelector((state) => state.states.repeatpattern);
+  const {selecteddays} = useSelector((state) => state.stats);
+  const {repeatpattern} = useSelector((state) => state.states);
 
   const handleDayClick = (day) => {
     dispatch(setselecteddays(day));
   };
 
-  // Do not render if repeatpattern is "", "monthly", or "yearly"
   if (!repeatpattern || repeatpattern === "monthly" || repeatpattern === "yearly") {
     return null;
   }
