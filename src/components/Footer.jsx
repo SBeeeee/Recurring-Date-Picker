@@ -1,8 +1,8 @@
 const stats = [
-    { value: '100%', label: 'TypeScript' },
-    { value: '7+', label: 'Components' },
+    { value: '100%', label: 'JavaScript' },
+    { value: '17+', label: 'Components' },
     { value: '95%', label: 'Test Coverage' },
-    { value: '< 50KB', label: 'Bundle Size' },
+    { value: 'Shatadru', label: 'Created By' },
   ];
   
   const Footer = () => {
