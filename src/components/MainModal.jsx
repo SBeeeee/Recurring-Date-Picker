@@ -11,6 +11,7 @@ import DateRangePicker from "./DateRangePicker";
 import CalendarWrapper from "./CalenderWrapper";
 import DateCalculatorLogic from "@/utils/DateCalcultorLogic";
 import SelectedDatesComponent from "./SelectedDatesComponent";
+import ApplyScheduleButtons from "./ApplyScheduleButtons";
 
 
 export default function MainModal() {
@@ -38,6 +39,7 @@ export default function MainModal() {
    <CalendarWrapper/>
   <DateCalculatorLogic/>
   <SelectedDatesComponent />
+  <ApplyScheduleButtons/>
       </div>
     </div>
   );

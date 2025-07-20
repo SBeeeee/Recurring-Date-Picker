@@ -1,12 +1,10 @@
 "use client"
-import { useDispatch, useSelector } from "react-redux"
+import { useSelector } from "react-redux"
 import { useState } from "react"
 import dayjs from "dayjs"
-import { setselecteddays } from "@/store/Stats/slice"
 
 export default function CalendarView() {
-  const dispatch = useDispatch()
-  const selecteddays = useSelector(state => state.stats.selecteddays)
+  const calculatedDates = useSelector(state => state.stats.calculatedDates)
   const today = dayjs() 
 
   const [currentMonth, setCurrentMonth] = useState(today.startOf("month"))
@@ -18,10 +16,11 @@ export default function CalendarView() {
   for (let i = 0; i < startDay; i++) calendarDays.push(null)
   for (let d = 1; d <= daysInMonth; d++) calendarDays.push(d)
 
-  const handleDateClick = (day) => {
-    if (!day) return
-    dispatch(setselecteddays(day))
-  }
+  // Get calculated dates for current month
+  const currentMonthDates = calculatedDates.filter(dateStr => {
+    const date = dayjs(dateStr)
+    return date.month() === currentMonth.month() && date.year() === currentMonth.year()
+  }).map(dateStr => dayjs(dateStr).date())
 
   return (
     <div className="mt-6 p-4 bg-white rounded-xl shadow-md">
@@ -63,16 +62,15 @@ export default function CalendarView() {
             currentMonth.month() === today.month() &&
             currentMonth.year() === today.year()
 
-          const isSelected = selecteddays.includes(day)
+          const isCalculatedDate = day && currentMonthDates.includes(day)
 
           return (
             <div
               key={idx}
               className={`h-8 w-8 flex items-center justify-center rounded-md cursor-pointer transition
               ${isToday ? "bg-orange-100 border border-orange-500 text-orange-700 font-semibold" : ""}
-              ${isSelected ? "bg-blue-100 text-blue-700 font-semibold" : "hover:bg-gray-100"}
+              ${isCalculatedDate ? "bg-gradient-to-br from-blue-400 to-purple-500 text-white font-semibold" : "hover:bg-gray-100"}
               `}
-              onClick={() => handleDateClick(day)}
             >
               {day || ""}
             </div>
@@ -82,9 +80,9 @@ export default function CalendarView() {
 
       {/* Footer Legend */}
       <div className="flex justify-between text-xs text-gray-500 mt-2 px-1">
-        <span className="flex items-center gap-1">🔵 Selected dates</span>
+        <span className="flex items-center gap-1">🔵 Recurring dates</span>
         <span className="flex items-center gap-1">🟠 Today</span>
-        <span className="text-blue-600 font-semibold">{selecteddays.length} dates</span>
+        <span className="text-blue-600 font-semibold">{calculatedDates.length} days </span>
       </div>
     </div>
   )

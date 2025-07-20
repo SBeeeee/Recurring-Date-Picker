@@ -9,6 +9,7 @@ const initialState={
     startDate: "",   
     endDate: "",   
     calculatedDates: [],
+    finaldates:[],
 }
 
 const statsSlice=createSlice({
@@ -44,8 +45,11 @@ const statsSlice=createSlice({
             setCalculatedDates: (state, action) => {
               state.calculatedDates = action.payload;
             },
+            setFinalDates: (state, action) => {
+              state.finaldates = action.payload;
+            }
         },
 })
 
-export const {setselecteddays, setMonthlyOptionType,setMonthlyDayNumber,setMonthlyNthWeek,setMonthlyWeekday, setStartDate, setEndDate, setCalculatedDates}=statsSlice.actions;
+export const {setselecteddays, setMonthlyOptionType,setMonthlyDayNumber,setMonthlyNthWeek,setMonthlyWeekday, setStartDate, setEndDate, setCalculatedDates,setFinalDates}=statsSlice.actions;
 export default statsSlice.reducer;
