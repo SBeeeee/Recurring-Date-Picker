@@ -6,6 +6,7 @@ import { X } from "lucide-react";
 import RepeatPatternOptions from "./RepeatPatternOptions";
 import FrequencyInput from "./FrequencyInput";
 import DaySelector from "./DaySelector";
+import MonthlyPatternSelector from "./MonthlyPatternSelector";
 
 
 export default function MainModal() {
@@ -28,6 +29,7 @@ export default function MainModal() {
    <RepeatPatternOptions/>
    <FrequencyInput/>
    <DaySelector/>
+   <MonthlyPatternSelector/>
       </div>
     </div>
   );
