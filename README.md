@@ -32,6 +32,7 @@ A clean, modern recurring schedule selector built using **Next.js App Router**, 
 Clone the repo and install dependencies:
 
 ```bash
-git clone https://github.com/YOUR-USERNAME/YOUR-REPO-NAME.git
-cd YOUR-REPO-NAME
+git clone https://github.com/SBeeeee/Recurring-Date-Picker
+cd datepicker
 npm install
+npm run dev
