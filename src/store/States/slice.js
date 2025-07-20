@@ -5,6 +5,7 @@ const initialState={
     repeatpattern:"",
     frequency:1,
     endDateEnabled: false,    
+    calenderpreview:true,
 }
 
 const stateSlice=createSlice({
@@ -23,8 +24,11 @@ const stateSlice=createSlice({
         setEndDateEnabled: (state, action) => {
             state.endDateEnabled = action.payload;
          },
+         setcalenderPreview:(state,action)=>{
+            state.calenderpreview=action.payload;
+         }
     }
 })
 
-export const {setmainModal,setpattern,setfrequency,setEndDateEnabled}=stateSlice.actions;
+export const {setmainModal,setpattern,setfrequency,setEndDateEnabled,setcalenderPreview}=stateSlice.actions;
 export default stateSlice.reducer;
