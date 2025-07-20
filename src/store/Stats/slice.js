@@ -2,12 +2,13 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState={
     selecteddays:[],
-    monthlyOptionType: "day", // "day", "nth", or "last"
+    monthlyOptionType: "day", 
     monthlyDayNumber: 1,
     monthlyNthWeek: "1st",
     monthlyWeekday: "Sunday",
     startDate: "",   
     endDate: "",   
+    calculatedDates: [],
 }
 
 const statsSlice=createSlice({
@@ -40,8 +41,11 @@ const statsSlice=createSlice({
             setEndDate: (state, action) => {
               state.endDate = action.payload;
             },
+            setCalculatedDates: (state, action) => {
+              state.calculatedDates = action.payload;
+            },
         },
 })
 
-export const {setselecteddays, setMonthlyOptionType,setMonthlyDayNumber,setMonthlyNthWeek,setMonthlyWeekday, setStartDate, setEndDate}=statsSlice.actions;
+export const {setselecteddays, setMonthlyOptionType,setMonthlyDayNumber,setMonthlyNthWeek,setMonthlyWeekday, setStartDate, setEndDate, setCalculatedDates}=statsSlice.actions;
 export default statsSlice.reducer;

@@ -9,6 +9,8 @@ import DaySelector from "./DaySelector";
 import MonthlyPatternSelector from "./MonthlyPatternSelector";
 import DateRangePicker from "./DateRangePicker";
 import CalendarWrapper from "./CalenderWrapper";
+import DateCalculatorLogic from "@/utils/DateCalcultorLogic";
+import SelectedDatesComponent from "./SelectedDatesComponent";
 
 
 export default function MainModal() {
@@ -34,6 +36,8 @@ export default function MainModal() {
    <MonthlyPatternSelector/>
    <DateRangePicker/>
    <CalendarWrapper/>
+  <DateCalculatorLogic/>
+  <SelectedDatesComponent />
       </div>
     </div>
   );
