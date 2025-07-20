@@ -1,17 +1,22 @@
-"use client"
+"use client";
 import { CalendarDays, Sparkles } from 'lucide-react';
 import { useDispatch, useSelector } from 'react-redux';
 import MainModal from './MainModal';
 import { setmainModal } from '@/store/States/slice';
 
 const CTA = () => {
-  const dispatch = useDispatch(); 
+  const dispatch = useDispatch();
   const { openmainmodal } = useSelector((state) => state.states);
+  const finaldates = useSelector((state) => state.stats.finaldates);
 
   const handleClick = () => {
     console.log("Button clicked — opening modal");
     dispatch(setmainModal(true));
   };
+
+  const hasFinalDates = finaldates.length > 0;
+  const buttonTitle = hasFinalDates ? "Modify Schedule" : "Recurring Dates";
+  const subtitle = hasFinalDates ? "Edit your selected dates" : "Set up your schedule";
 
   return (
     <div className="bg-white rounded-3xl px-6 mt-6 pt-6 pb-8 shadow-xl max-w-5xl mx-auto text-center">
@@ -25,10 +30,10 @@ const CTA = () => {
         <CalendarDays className="w-5 h-5" />
         <div className="text-left leading-tight">
           <div className="flex items-center gap-1">
-            Recurring Dates
+            {buttonTitle}
             <Sparkles className="w-4 h-4" />
           </div>
-          <p className="text-xs font-normal text-white/80">Set up your schedule</p>
+          <p className="text-xs font-normal text-white/80">{subtitle}</p>
         </div>
       </button>
       {openmainmodal && <MainModal />}
