@@ -21,27 +21,27 @@ export default function DateRangePicker() {
           type="date"
           value={startDate}
           onChange={(e) => dispatch(setStartDate(e.target.value))}
-          className="w-full border px-3 py-2 rounded-md text-gray-800 shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-500"
+          className="w-full border px-3 py-2 rounded-md text-gray-800 shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-500 hover:cursor-pointer"
         />
       </div>
 
-      <div className="flex items-center gap-2">
+      <div className="flex items-center gap-2 hover:cursor-pointer">
         <input
           type="checkbox"
           checked={endDateEnabled}
           onChange={(e) => dispatch(setEndDateEnabled(e.target.checked))}
         />
-        <label className="text-sm text-gray-700">Set end date</label>
+        <label className="text-sm text-gray-700 hover:cursor-pointergit">Set end date</label>
       </div>
 
       {endDateEnabled && (
         <div className="space-y-2">
-          <label className="text-sm font-medium text-gray-700">End date</label>
+          <label className="text-sm  font-medium text-gray-700">End date</label>
           <input
             type="date"
             value={endDate}
             onChange={(e) => dispatch(setEndDate(e.target.value))}
-            className="w-full border px-3 py-2 rounded-md text-gray-800 shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-500"
+            className="w-full hover:cursor-pointer border px-3 py-2 rounded-md text-gray-800 shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-500"
           />
         </div>
       )}

@@ -25,14 +25,14 @@ export default function ApplyScheduleButtons() {
     <div className="flex justify-end items-center gap-4 p-4 border-t">
       <button
         onClick={handleCancel}
-        className="text-gray-600 text-sm hover:underline"
+        className="text-gray-600 text-sm hover:underline hover:cursor-pointer "
       >
         Cancel
       </button>
       <button
         onClick={handleApply}
         disabled={isDisabled}
-        className={`text-white text-sm px-4 py-2 rounded-full transition 
+        className={`text-white text-sm px-4 py-2 rounded-full transition hover:cursor-pointer
           ${
             isDisabled
               ? "bg-gradient-to-r from-blue-200 to-purple-200 cursor-not-allowed"
